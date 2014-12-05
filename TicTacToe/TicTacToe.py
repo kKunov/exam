@@ -60,6 +60,14 @@ def is_game_ended(table):
         print("The Computer wins!!!")
         return [True, 2]
 
+    if table[0][2] == table[1][1] == table[2][0] == "x":
+        print("The Player wins!!!")
+        return [True, 1]
+
+    elif table[0][2] == table[1][1] == table[2][0] == "o":
+        print("The Computer wins!!!")
+        return [True, 2]
+
     elif no_more_moves(table):
         print("Draw!!!")
         return [True, 0]
@@ -285,7 +293,7 @@ def the_game():
     number_of_games = 0
     pc_wins = 0
     human_wins = 0
-    chance_for_pc_mistake = 1/10
+    chance_for_pc_mistake = 1/100
 
     while again is True:
         player = 1
@@ -307,7 +315,7 @@ def the_game():
                 table[row-1][col-1] = 'x'
 
             else:
-                if chance_for_pc_mistake < random.random():
+                if random.random() < chance_for_pc_mistake:
                     pc_chose = random.choice(free_pos_func(table))
                 else:
                     pc_chose = pc(table)
