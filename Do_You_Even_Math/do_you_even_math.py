@@ -53,18 +53,23 @@ def problem_slove():
     if problem[1] == '+' and int(answer) == problem[0] + problem[2]:
         print("Correct!")
         return True
+
     elif problem[1] == '+' and int(answer) != problem[0] + problem[2]:
         print("Wrooooooong!")
         return False
+
     if problem[1] == '-' and int(answer) == problem[0] - problem[2]:
         print("Correct!")
         return True
+
     elif problem[1] == '-' and int(answer) != problem[0] - problem[2]:
         print("Wrooooooong!")
         return False
+
     if problem[1] == '*' and int(answer) == problem[0] * problem[2]:
         print("Correct!")
         return True
+
     elif problem[1] == '*' and int(answer) != problem[0] * problem[2]:
         print("Wrooooooong!")
         return False
@@ -78,10 +83,12 @@ def play():
     name = input("Insert name: ")
     n = 0
     player = Player(name=name)
+
     try:
         session.add(player)
         session.commit()
         print("Hi {}".format(name))
+
     except Exception:
         session.rollback()
         print("Hi again {} :)".format(name))
@@ -128,6 +135,7 @@ def game_menu():
 
     if command == 'play':
         play()
+
     elif command == 'highscore':
         highscore()
 
